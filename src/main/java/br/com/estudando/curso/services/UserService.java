@@ -13,16 +13,19 @@ import br.com.estudando.curso.repositories.UserRepository;
 public class UserService {
 	
 	@Autowired
-	private UserRepository reprository;
+	private UserRepository repository;
 
 	public List<User> findAll(){
-		return reprository.findAll();
+		return repository.findAll();
 	}
 	
 	public User findById(long id) {
-		Optional<User> obj= reprository.findById(id);
+		Optional<User> obj= repository.findById(id);
 		return obj.get();
-		
+	}
+	
+	public User insert(User obj) {
+		return repository.save(obj);
 	}
 }
 
